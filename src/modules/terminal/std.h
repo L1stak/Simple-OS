@@ -24,3 +24,4 @@ enum vga_color {
 };
 
 void terminalPrint(const char* str, enum vga_color color, enum vga_color background);
+void terminalClear(enum vga_color background);
