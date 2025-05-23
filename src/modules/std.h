@@ -24,34 +24,16 @@ enum vga_color {
     VGA_COLOR_WHITE = 0xF,
     VGA_COLOR_NONE = 0x01E
 };
-typedef struct {
-    const char* str;
-    enum vga_color color;
-    enum vga_color background;
-} terminal;
-typedef struct {
-    terminal data[100];
-    int size;
-} terminalVector;
-extern terminalVector terminalData;
-
 
 
 // system
 // FIXME
 void sleep(int seconds);
-
-void print(const char* str);
-const char* input();
-
-int getRAM();
 int size(const char* str);
 
 // terminal
 void terminalPrint(const char* str, enum vga_color color, enum vga_color background);
 void terminalClear(enum vga_color background);
-void terminalInit();
-void terminalPush(const char* str, enum vga_color color, enum vga_color background);
 
 // convert
 const char* int_to_char(int num);
