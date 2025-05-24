@@ -3,6 +3,7 @@ NASM = nasm
 LINK = i686-elf-ld
 
 GCCFLAGS = -m32 -c
+GCCFLAGS2 = -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 NASMFLAGS = -f elf32
 LINKFLAGS = -m elf_i386 -T
 
@@ -17,7 +18,7 @@ TARGET = kernel
 all: $(TARGET)
 
 %.o: %.c
-	$(GCC) $(GCCFLAGS) $< -o $@
+	$(GCC) $(GCCFLAGS) $< -o $@ $(GCCFLAGS2)
 
 %.o: %.asm
 	$(NASM) $(NASMFLAGS) $< -o $@
