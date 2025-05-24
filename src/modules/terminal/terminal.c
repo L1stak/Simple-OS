@@ -1,5 +1,55 @@
 #include "../std.h"
 
+size_t terminalRow;
+size_t terminalColumn;
+enum vga_color terminalColor;
+uint16_t* terminalBuffer = (uint16_t*)0xb8000;
+
+size_t strlen(const char* str) {
+	size_t len = 0;
+	while (str[len])
+		len++;
+	return len;
+}
+
+void terminalInit() {
+	terminalRow = 0;
+	terminalColumn = 0;
+	terminalColor = VGA_COLOR_LIGHT_GREY | VGA_COLOR_BLACK << 4;
+	
+	for (size_t y = 0; y < VGA_TERMINAL_HEIGHT; y++) {
+		for (size_t x = 0; x < VGA_TERMINAL_WIDTH; x++) {
+			const size_t index = y * VGA_TERMINAL_WIDTH + x;
+			terminalBuffer[index] = ' ' | terminalColor << 8;
+		}
+	}
+}
+void terminalSetColor(enum vga_color color, enum vga_color background) {
+	terminalColor = color | background << 4;
+}
+void terminalPutentryat(char c, enum vga_color color, size_t x, size_t y) 
+{
+	const size_t index = y * VGA_TERMINAL_WIDTH + x;
+	terminalBuffer[index] = c | color << 8;
+}
+void terminalPutchar(char c) {
+	terminalPutentryat(c, terminalColor, terminalColumn, terminalRow);
+	if (++terminalColumn == VGA_TERMINAL_WIDTH) {
+		terminalColumn = 0;
+		if (++terminalRow == VGA_TERMINAL_HEIGHT)
+			terminalRow = 0;
+	}
+}
+void terminalWrite(const char* data, size_t size) {
+	for (size_t i = 0; i < size; i++)
+		terminalPutchar(data[i]);
+}
+void print(const char* data) {
+	terminalWrite(data, strlen(data));
+}
+
+
+// На всякий случай
 void terminalPrint(const char* str, enum vga_color color, enum vga_color background) {
     char *vidptr = (char*)0xb8000;     //видео пямять начинается здесь
     unsigned int i = 0;

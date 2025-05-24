@@ -4,6 +4,7 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 enum vga_color {
     VGA_COLOR_BLACK = 0x0,
@@ -32,6 +33,10 @@ void sleep(int seconds);
 int size(const char* str);
 
 // terminal
+void terminalInit();
+void terminalSetColor(enum vga_color color, enum vga_color background);
+void print(const char* data);
+
 void terminalPrint(const char* str, enum vga_color color, enum vga_color background);
 void terminalClear(enum vga_color background);
 
