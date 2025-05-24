@@ -18,3 +18,4 @@ start:
 section .bss
 resb 8192  ;8KB на стек
 stack_space:
+
