@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include "src/modules/syslib/systemc.c"
+#include "../syslib/systemc.c"
 
 #define PIC1 0x20 /* Базовый адрес ввода-вывода для главного PIC */
 #define PIC2 0xA0 /* Базовый адрес ввода-вывода для подчиненного PIC */

@@ -30,7 +30,6 @@ enum vga_color {
 // system
 // FIXME
 void sleep(int seconds);
-int size(const char* str);
 
 // terminal
 void terminalInit();

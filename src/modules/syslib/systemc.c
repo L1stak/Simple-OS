@@ -4,14 +4,6 @@
 #include <stdint.h>
 
 
-int size(const char* str) {
-    int i = 0;
-    while (str[i] != '\n') {
-        i++;
-    }
-    return i;
-}
-
 static inline uint32_t farpeekl(uint16_t sel, void* off)
 {
     uint32_t ret;
