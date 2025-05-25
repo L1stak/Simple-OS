@@ -26,10 +26,8 @@ enum vga_color {
     VGA_COLOR_NONE = 0x01E
 };
 
-
-// system
-// FIXME
-void sleep(int seconds);
+// fun
+void neofetch();
 
 // terminal
 void terminalInit();
@@ -41,3 +39,4 @@ void terminalClear(enum vga_color background);
 
 // convert
 const char* int_to_char(int num);
+void memClear(char* str, int size);

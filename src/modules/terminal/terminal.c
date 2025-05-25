@@ -45,7 +45,28 @@ void terminalWrite(const char* data, size_t size) {
 		terminalPutchar(data[i]);
 }
 void print(const char* data) {
-	terminalWrite(data, strlen(data));
+	char tmp[255];
+	int size = 0;
+	int i = 0;
+	while (data[i] != '\0') {
+		if (data[i] != '\n') {
+			tmp[size] = data[i];
+			size++;
+		} else {
+			tmp[size + 1] = '\0';
+			terminalWrite(tmp, strlen(tmp));
+			terminalRow++;
+			terminalColumn = 0;
+			size = 0;
+			memClear(tmp, 255);
+		}
+		i++;
+	}
+	if (tmp[0] != '\0') {
+		terminalWrite(tmp, strlen(tmp));
+		size = 0;
+		memClear(tmp, 255);
+	}
 }
 
 

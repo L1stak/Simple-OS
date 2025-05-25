@@ -85,4 +85,3 @@ static inline uint64_t rdtsc() // считывает текущее значен
     asm volatile ( "rdtsc" : "=A"(ret) );
     return ret;
 }
-

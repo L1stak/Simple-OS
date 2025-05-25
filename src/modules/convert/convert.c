@@ -28,3 +28,9 @@ const char* int_to_char(int num) {
 
     return &buffer[i + 1];
 }
+
+void memClear(char* str, int size) {
+    for (int i = 0; i < size; i++) {
+        str[i] = '\0';
+    }
+}
