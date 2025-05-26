@@ -1,4 +1,5 @@
 #include "src/modules/std.h"
+#include "src/modules/math.h"
 
 void kernelMain(void) {
     terminalInit();

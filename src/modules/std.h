@@ -39,4 +39,5 @@ void terminalClear(enum vga_color background);
 
 // convert
 const char* int_to_char(int num);
+const char* double_to_char(double num);
 void memClear(char* str, int size);
