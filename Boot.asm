@@ -34,7 +34,7 @@ gdt_start:
 
   gdt_codeSeg equ gdt_code - gdt_start
   gdt_dataSeg equ gdt_data - gdt_start
-
+lgdt [gdt_descriptor]
 
 start:
   cli    ;блокировка прерываний
