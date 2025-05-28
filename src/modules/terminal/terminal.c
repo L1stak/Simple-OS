@@ -1,4 +1,4 @@
-#include "../std.h"
+#include "../shell/shell.h"
 
 size_t terminalRow;
 size_t terminalColumn;
@@ -67,6 +67,19 @@ void print(const char* data) {
 		size = 0;
 		memClear(tmp, 255);
 	}
+}
+void terminalSetCursor(size_t row, size_t column) {
+	terminalRow = (row > VGA_TERMINAL_HEIGHT) ? VGA_TERMINAL_HEIGHT : (row < 0) ? 0 : row;
+	terminalColumn = (column > VGA_TERMINAL_WIDTH) ? VGA_TERMINAL_WIDTH : (column < 0) ? 0 : column;
+}
+size_t getTerminalRow() {
+	return terminalRow;
+}
+size_t getTerminalColumn() {
+	return terminalColumn;
+}
+enum vga_color getTerminalColor() {
+	return terminalColor;
 }
 
 

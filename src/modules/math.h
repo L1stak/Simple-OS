@@ -25,3 +25,4 @@ double exp(double x); //y
 double log(double x); //y
 double sin(double x); //y
 double cos(double x); //y
+int rand(int min, int max); //y
