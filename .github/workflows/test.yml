@@ -1,0 +1,12 @@
+name: Test
+on: push
+jobs:
+  buildTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download git
+        uses: action/checkout@v3
+      - name: install gcc, nasm and ld
+        run: sudo apt install gcc nasm
+      - name: build
+        run: make
