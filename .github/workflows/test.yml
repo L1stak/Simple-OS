@@ -12,14 +12,9 @@ jobs:
         run: sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo
       - name: Install i686-elf-gcc
         run: |
-          wget https://github.com/cjacker/gcc-cross-compiler/releases/download/10.2.0-1/x86_64-linux-i686-elf-binutils.tar.gz
-          wget https://github.com/cjacker/gcc-cross-compiler/releases/download/10.2.0-1/x86_64-linux-i686-elf-gcc.tar.gz
-
-          tar -xzf x86_64-linux-i686-elf-binutils.tar.gz
-          tar -xzf x86_64-linux-i686-elf-gcc.tar.gz
-
-          echo "$GITHUB_WORKSPACE/x86_64-linux-i686-elf-bin" >> $GITHUB_PATH
-          echo "$GITHUB_WORKSPACE/x86_64-linux-i686-elf-gcc/bin" >> $GITHUB_PATH
+          wget https://github.com/lordmilko/i686-elf-tools/releases/download/13.2.0/i686-elf-tools-linux.tar.gz
+          tar -xzf i686-elf-tools-linux.tar.gz
+          echo "${GITHUB_WORKSPACE}/i686-elf-tools-linux/bin" >> $GITHUB_PATH
       - name: Build
         run: |
           i686-elf-gcc --version
