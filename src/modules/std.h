@@ -25,17 +25,30 @@ enum vga_color {
     VGA_COLOR_WHITE = 0xF,
     VGA_COLOR_NONE = 0x01E
 };
+typedef struct {
+    uint8_t seconds;
+    uint8_t minutes;
+    uint8_t hours;
+} time;
+
 
 // fun
 void neofetch();
+int main();
 
 // terminal
 void terminalInit();
 void terminalSetColor(enum vga_color color, enum vga_color background);
 void print(const char* data);
+size_t getTerminalColumn();
+size_t getTerminalRow();
+void terminalSetCursor(size_t row, size_t column);
 
 void terminalPrint(const char* str, enum vga_color color, enum vga_color background);
 void terminalClear(enum vga_color background);
+
+// system
+time* getTime();
 
 // convert
 const char* int_to_char(int num);

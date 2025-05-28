@@ -1,4 +1,7 @@
 #include "../math.h"
+#include "../std.h"
+
+unsigned int seed = 1;
 
 double normalize(double x) {
     while (x > M_PI) x -= 2 * M_PI;
@@ -46,12 +49,6 @@ float tan(float x) {
     return sin(x) / cos(x);
 }
 float pow(float x, float y) {
-    // float res = x;
-    // for (int i = 1; i < y; i++) {
-    //     res *= x;
-    // }
-    // return res;
-    
     if (x <= 0) return -1;
     return exp(y * log(x));
 }
@@ -76,4 +73,10 @@ double log(double x) {
         term *= y2;
     }
     return 2.0 * sum;
+}
+
+int rand(int min, int max) {
+    time* t = getTime();
+    seed = (1103515245 * seed + ((t->seconds * t->minutes * t->hours) / 5)) % (1 << 31);
+    return min + (seed % (max - min + 1));
 }
