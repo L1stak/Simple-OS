@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "stddef.h": "c"
+    },
+    "files.exclude": {
+        "**/.git": false
     }
 }
