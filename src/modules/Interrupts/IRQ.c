@@ -2,7 +2,8 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "../syslib/systemc.c"
-
+#include "../std.h"
+#include "../keyboard/keyboard.h"
 #define PIC1 0x20 /* Базовый адрес ввода-вывода для главного PIC */
 #define PIC2 0xA0 /* Базовый адрес ввода-вывода для подчиненного PIC */
 #define PIC1_COMMAND PIC1
@@ -54,6 +55,9 @@ __attribute__((noreturn))
 
 void exception_handler() { // фунция прерывания
     __asm__ volatile ("cli; hlt");
+    
+    __asm__ volatile ("push eax; in al,60h; mov al,20h ; out 20h,al; pop eax; mov f,al;iret")
+    print(int_to_char(f));
 }
 
 
