@@ -13,7 +13,7 @@ unsigned long simple_hash(char* str) {
     return i % 50000;
 }
 
-typedef struct dict     /* L1stak*/
+/*typedef struct dict     
 {
     char* key;
     uint8_t value;
@@ -111,7 +111,7 @@ char* ht_search(HashTable* table, char* key)
     }
 
     return NULL;
-}
+}*/
 static uint32_t farpeekl(uint16_t sel, void* off)
 {
     uint32_t ret;
