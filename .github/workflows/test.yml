@@ -10,7 +10,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y
       - name: Download dependencies
         run: sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo
-      - name: Install i686-elf-gcc
+      - name: Dnstall i686-elf-gcc
         run: |
           wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_aa
           wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_ab

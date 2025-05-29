@@ -2,8 +2,6 @@
 
 void _shell_print_(const char* str) {
     time* t = getTime();
-    enum vga_color tmpColor;
-    enum vga_color tmpBackground;
 
     terminalSetColor(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
     if (getTerminalColumn() != 0) {

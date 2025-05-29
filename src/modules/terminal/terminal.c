@@ -69,8 +69,8 @@ void print(const char* data) {
 	}
 }
 void terminalSetCursor(size_t row, size_t column) {
-	terminalRow = (row > VGA_TERMINAL_HEIGHT) ? VGA_TERMINAL_HEIGHT : (row < 0) ? 0 : row;
-	terminalColumn = (column > VGA_TERMINAL_WIDTH) ? VGA_TERMINAL_WIDTH : (column < 0) ? 0 : column;
+	terminalRow = (row > VGA_TERMINAL_HEIGHT) ? VGA_TERMINAL_HEIGHT : row;
+	terminalColumn = (column > VGA_TERMINAL_WIDTH) ? VGA_TERMINAL_WIDTH : column;
 }
 size_t getTerminalRow() {
 	return terminalRow;

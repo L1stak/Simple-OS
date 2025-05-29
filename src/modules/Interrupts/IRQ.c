@@ -56,7 +56,7 @@ __attribute__((noreturn))
 void exception_handler() { // фунция прерывания
     __asm__ volatile ("cli; hlt");
     
-    __asm__ volatile ("push eax; in al,60h; mov al,20h ; out 20h,al; pop eax; mov f,al;iret")
+    __asm__ volatile ("push eax; in al,60h; mov al,20h ; out 20h,al; pop eax; mov f,al;iret");
     print(int_to_char(f));
 }
 
