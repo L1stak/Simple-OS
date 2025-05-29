@@ -12,11 +12,16 @@ jobs:
         run: sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo
       - name: Install i686-elf-gcc
         run: |
-          wget https://github.com/lordmilko/i686-elf-tools/releases/download/13.2.0/i686-elf-tools-linux.tar.gz
-          tar -xzf i686-elf-tools-linux.tar.gz
-          echo "${GITHUB_WORKSPACE}/i686-elf-tools-linux/bin" >> $GITHUB_PATH
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_aa
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_ab
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_ac
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_ad
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_ae
+          wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_af
+          cat part_* > i686-elf-toolchain.tar.gz
+          tar -xf i686-elf-toolchain.tar.gz
+          export PATH="$PATH:$HOME/i686-elf/bin"
       - name: Build
         run: |
           i686-elf-gcc --version
           i686-elf-ld --version
-          make
