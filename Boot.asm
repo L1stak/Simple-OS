@@ -6,7 +6,7 @@ section .text
         dd 0x00                  ;флаги
         dd - (0x1BADB002 + 0x00) ;контрольная сумма. мч+ф+кс должно равняться нулю
 
-dt_start:
+gdt_start:
   gdt_null:
   dd 0x00
   dd 0x00

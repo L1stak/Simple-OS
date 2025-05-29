@@ -3,7 +3,6 @@
 
 #include <stdint.h>
 
-uint16_t f; //  да я согрешил
 
 
 enum keysCodePress {

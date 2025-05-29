@@ -6,14 +6,14 @@
 
 
 
-unsigned long simple_hash(char* str) {
+/*unsigned long simple_hash(char* str) {
     unsigned long i = 0;
     for (int j=0; str[j]; j++)
         i += str[j];
     return i % 50000;
 }
 
-/*typedef struct dict     
+typedef struct dict     
 {
     char* key;
     uint8_t value;
