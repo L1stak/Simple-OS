@@ -20,7 +20,8 @@ jobs:
           wget https://github.com/Alex9600t/gcc-i686/releases/download/rel_1/part_af
           cat part_* > i686-elf-toolchain.tar.gz
           tar -xf i686-elf-toolchain.tar.gz
-          export PATH="$PATH:$HOME/i686-elf/bin"
+          tree ./i686-elf
+          echo "${GITHUB_WORKSPACE}/i686-elf/bin" >> $GITHUB_PATH
       - name: Build
         run: |
           i686-elf-gcc --version
