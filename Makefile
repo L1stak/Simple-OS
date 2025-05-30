@@ -36,4 +36,4 @@ $(TARGET): $(OBJC) $(OBJASM)
 
 
 clean:
-	rm -f $(OBJC) $(OBJASM) $(TARGET)
+	rm -f $(OBJC) $(OBJCUSTOM) $(OBJASM) $(TARGET)
