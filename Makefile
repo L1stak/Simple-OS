@@ -7,8 +7,8 @@ GCCFLAGS2 = -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 NASMFLAGS = -f elf32
 LINKFLAGS = -m elf_i386 -T
 
-SRCC = $(shell find . -name '*.c')
-SRCASM = $(shell find . -name '*.asm')
+SRCC = $(shell find . -not -path '/src/modules/Interrupts*' -name '*.c')
+SRCASM = $(shell find . -not -path '/src/modules/Interrupts*' -name '*.asm')
 
 OBJC = $(SRCC:.c=.o)
 OBJASM = $(SRCASM:.asm=.o)
@@ -20,8 +20,8 @@ IRQ_OBJ = $(IRQ_FILE:.c=.o)
 all: $(TARGET)
 
 $(IRQ_OBJ): $(IRQ_FILE)
-	i686-elf-gcc -ffreestanding -mgeneral-regs-only -c ./src/modules/Interrupts/IRQ.c  -o ./src/modules/Interrupts/IRQ.o
 
+	$(GCC) $(GCCFLAGS) $< -o $@ $(GCCFLAGS2)
 %.o: %.c
 	$(GCC) $(GCCFLAGS) $< -o $@ $(GCCFLAGS2)
 
