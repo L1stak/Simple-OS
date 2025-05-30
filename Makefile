@@ -15,10 +15,16 @@ OBJASM = $(SRCASM:.asm=.o)
 
 TARGET = kernel
 
+IRQ_FILE = IRQ.c 
+IRQ_OBJ = $(IRQ_FILE:.c=.o)
 all: $(TARGET)
+
+$(IRQ_OBJ): $(IRQ_FILE)
+	i686-elf-gcc -ffreestanding -mgeneral-regs-only -c ./src/modules/Interrupts/IRQ.c  -o ./src/modules/Interrupts/IRQ.o
 
 %.o: %.c
 	$(GCC) $(GCCFLAGS) $< -o $@ $(GCCFLAGS2)
+
 
 %.o: %.asm
 	$(NASM) $(NASMFLAGS) $< -o $@

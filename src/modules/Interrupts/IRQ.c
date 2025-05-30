@@ -3,9 +3,26 @@
 #include <stdint.h>
 #include "../syslib/systemc.c"
 #include "../std.h"
-#include "../keyboard/keyboard.h"
-#define PIC1 0x20 /* Базовый адрес ввода-вывода для главного PIC */
-#define PIC2 0xA0 /* Базовый адрес ввода-вывода для подчиненного PIC */
+#include "../keyboard/keyboard.h" 
+struct interrupt_frame{
+    uint32_t ip;
+    uint32_t cs;
+    uint32_t flags;
+    uint32_t sp;
+    uint32_t ss;
+}__attribute__((packed));
+__attribute__((interrupt)) void interrupt_handler(struct interrupt_frame* frame){
+    terminalSetColor(VGA_COLOR_WHITE, VGA_COLOR_BLACK);
+    print("Interrupt!!! GOIDAAA");
+    
+
+
+}
+
+
+/*
+#define PIC1 0x20 /* Базовый адрес ввода-вывода для главного PIC 
+#define PIC2 0xA0 /* Базовый адрес ввода-вывода для подчиненного PIC 
 #define PIC1_COMMAND PIC1
 #define PIC1_DATA (PIC1+1)
 #define PIC2_COMMAND PIC2
@@ -19,13 +36,13 @@
 #define ICW1_INTERVAL4	0x04		/* Интервал между вызовами 4 (8) */
 #define ICW1_LEVEL	0x08		/* Режим срабатывания уровня (пограничный)*/
 #define ICW1_INIT 0x10 
-#define ICW4_8086	0x01		/* 8086/88 (MCS-80/85) mode */
-#define ICW4_AUTO	0x02		/* Auto (normal) EOI */
-#define ICW4_BUF_SLAVE	0x08		/* Buffered mode/slave */
-#define ICW4_BUF_MASTER	0x0C		/* Buffered mode/master */
-#define ICW4_SFNM	0x10		/* Special fully nested (not) */
-#define PIC_READ_IRR   0x0a    /* OCW3 irq ready next CMD read */
-#define PIC_READ_ISR   0x0b    /* OCW3 irq service next CMD read */
+#define ICW4_8086	0x01		/* 8086/88 (MCS-80/85) mode 
+#define ICW4_AUTO	0x02		/* Auto (normal) EOI 
+#define ICW4_BUF_SLAVE	0x08		/* Buffered mode/slave 
+#define ICW4_BUF_MASTER	0x0C		/* Buffered mode/master 
+#define ICW4_SFNM	0x10		/* Special fully nested (not) 
+#define PIC_READ_IRR   0x0a    /* OCW3 irq ready next CMD read 
+#define PIC_READ_ISR   0x0b    /* OCW3 irq service next CMD read 
 
 
 
@@ -89,7 +106,7 @@ arguments:
 	offset 1 - смещение вектора для основного изображения
 векторы на главном изображении становятся offset1..offset1+7
 offset2 - то же самое для подчиненного изображения: offset2..offset2+7
-*/
+
 
 void PIC_remap(int offset1, int offset2) // PIC init
 {
@@ -168,4 +185,4 @@ uint16_t pic_get_irr(void)
 uint16_t pic_get_isr(void)
 {
     return __pic_get_irq_reg(PIC_READ_ISR);
-}
+}*/
