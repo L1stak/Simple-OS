@@ -16,7 +16,7 @@ OBJC = $(SRCC:.c=.o)
 OBJASM = $(SRCASM:.asm=.o)
 OBJCUSTOM = $(SRCCUSTOM:.c=.o)
 
-TARGET = kernel
+TARGET = kernel.elf
 
 all: $(TARGET)
 
@@ -32,6 +32,8 @@ $(TARGET): $(OBJC) $(OBJASM)
 	$(GCC) -m32 -mgeneral-regs-only -c $(SRCCUSTOM) -o $(OBJCUSTOM) $(GCCFLAGS2)
 	$(LINK) $(LINKFLAGS) link.ld -o $(TARGET) $(OBJASM) $(OBJC) $(OBJCUSTOM)
 
+run: $(TARGET)
+	qemu-system-x86_64 -kernel ./kernel.elf -m 512
 
 clean:
 	rm -f $(OBJC) $(OBJCUSTOM) $(OBJASM) $(TARGET)

@@ -15,6 +15,6 @@ void kernelMain(void) {
     //asm("sti");
    // PIC_remap();
      for(;;) {
-    asm("hlt"); //qemu-system-x86_64 -kernel ./kernel -m 512
+    asm("hlt");
  }
 }
