@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shellScript.h"
 
 void _shell_print_(const char* str) {
     time* t = getTime();

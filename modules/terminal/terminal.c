@@ -5,9 +5,10 @@ size_t terminalColumn;
 enum vga_color terminalColor;
 uint16_t* terminalBuffer = (uint16_t*)0xb8000;
 
-size_t strlen(const char* str) {
+size_t strlen(void* str) {
+	const unsigned char* s = str;
 	size_t len = 0;
-	while (str[len])
+	while (s[len])
 		len++;
 	return len;
 }
