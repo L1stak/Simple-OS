@@ -10,7 +10,7 @@ LINKFLAGS = -m elf_i386 -T
 
 SRCC = $(shell find . -name '*.c' ! -name "IRQ.c") 
 SRCASM = $(shell find . -name '*.asm')
-SRCCUSTOM = /modules/Interrupts/IRQ.c
+SRCCUSTOM = modules/Interrupts/IRQ.c
 
 OBJC = $(SRCC:.c=.o)
 OBJASM = $(SRCASM:.asm=.o)
@@ -20,8 +20,6 @@ TARGET = kernel
 
 all: $(TARGET)
 
-# $(OBJCUSTOM): $(SRCCUSTOM)
-# 	$(GCC) -m32 -mgeneral-regs-only -c $< -o $@ $(GCCFLAGS2)
 
 %.o: %.c
 	$(GCC) $(GCCFLAGS) $< -o $@ $(GCCFLAGS2)
