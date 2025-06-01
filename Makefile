@@ -8,9 +8,9 @@ GCCFLAGS2 = -std=gnu99 -ffreestanding -O2 -Wall -Wextra
 NASMFLAGS = -f elf32
 LINKFLAGS = -m elf_i386 -T
 
-SRCC = $(shell find . -name '*.c' ! -name "IRQ.c")
+SRCC = $(shell find . -name '*.c' ! -name "IRQ.c") #! -name "IRQ.c"
 SRCASM = $(shell find . -name '*.asm')
-SRCCUSTOM = src/modules/Interrupts/IRQ.c
+SRCCUSTOM = ./modules/Interrupts/IRQ.c
 
 OBJC = $(SRCC:.c=.o)
 OBJASM = $(SRCASM:.asm=.o)
