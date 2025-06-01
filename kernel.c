@@ -8,8 +8,8 @@ void kernelMain(void) {
     idt_init();
     
 
-    //_shell_print_("govnofetch");
-    //neofetch();
+    _shell_print_("govnofetch");
+    neofetch();
     terminalSetColor(VGA_COLOR_LIGHT_RED, VGA_COLOR_BLACK);
     print("\nC + NASM = <3");
     //asm("sti");
