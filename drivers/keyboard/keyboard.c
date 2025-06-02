@@ -1,5 +1,5 @@
 #include "keyboard.h"
-#include "../std.h"
+#include "../../modules/std.h"
 
 
 static char* _qwertzuiop = "qwertzuiop"; // 0x10-0x1c
