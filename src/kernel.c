@@ -1,12 +1,11 @@
+#define PLATFORM x86
+#define IsKernel true
 #include "system.h"
 
 
 void kernelMain(void) {
-    heap_init();
-    terminalInit();
-    terminalClear(VGA_COLOR_BLACK);
-    init_gdt();
-    idt_init();
+    
+    modules_init();
     
 
     _shell_print_("govnofetch");
