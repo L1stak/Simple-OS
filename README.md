@@ -11,4 +11,5 @@ sudo pacman -S qemu
 ```bash
 git clone https://github.com/L1stak/Simple-OS/Simple-OS.git
 cd Simple-OS 
-make run ```
+make run
+```
