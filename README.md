@@ -18,7 +18,7 @@ sudo dnf install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-
 ```
 #### ArchLinux <3
 ```sh
-sudo pacman -Syu gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu
+sudo pacman -S gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu
 ```
 or use 
 ```sh
