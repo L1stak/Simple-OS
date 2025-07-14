@@ -7,7 +7,7 @@
 > To build this system, you must use Linux (or WSL if you're on Windows).
 ---
 ### **Installing Dependencies**
-| Distro | cmd |
+| Distribution | Command |
 | - | - |
 | Ubuntu | `sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu` |
 | Fedora | `sudo dnf install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu` |
