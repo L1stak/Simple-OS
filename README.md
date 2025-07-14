@@ -2,31 +2,19 @@
 
 
 ## Hello this is small and simple OS kernel with memory manager, Interrupts, raw Keyboard Driver and Bootloader
-
+---
 > [!IMPORTANT]
 > To build this system, you must use Linux (or WSL if you're on Windows).
 ---
 ### **Installing Dependencies**
-
-#### Ubuntu
-```sh
-sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu
-```
-#### Fedora
-```sh
-sudo dnf install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu
-```
-#### ArchLinux <3
-```sh
-sudo pacman -S gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu
-```
-or use 
-```sh
-sudo yay <package_name>
-```
+| Distro | cmd |
+| - | - |
+| Ubuntu | `sudo apt install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu` |
+| Fedora | `sudo dnf install gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu` |
+| ArchLinux <3 | `sudo pacman -S gcc gcc-i686-linux-gnu nasm build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu` |
+| ArchLinux <3 alt | `sudo yay <package_name>` |
 ---
 ### **Installing essential-build**
-
 #### Build
 ```sh
 mkdir -p ~/i686-elf
